@@ -81,19 +81,18 @@ WSGI_APPLICATION = 'poll_project.wsgi.application'
 #     }
 # }
 # for Docker-compose settings:
-DATABASE = {
-    'default': dj_database_url.config()
+
+
+DATABASES = {
+  'default': {
+      'ENGINE': 'django.db.backends.postgresql',
+      'NAME': 'postgres',
+      'USER': 'postgres',
+      'PASSWORD': 'postgres',
+      'HOST': 'db',
+      'PORT': 5432,
+  }
 }
-# DATABASES = {
-#   'default': {
-#       'ENGINE': 'django.db.backends.postgresql',
-#       'NAME': 'postgres',
-#       'USER': 'postgres',
-#       'PASSWORD': 'postgres',
-#       'HOST': 'db',
-#       'PORT': 5432,
-#   }
-# }
 
 
 
@@ -143,5 +142,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-django_heroku.settings(locals())
