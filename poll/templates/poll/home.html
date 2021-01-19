@@ -1,0 +1,41 @@
+{% extends "poll/base.html" %}
+{% load static %}
+{% block title %}Homepage{% endblock %}
+
+
+{% block main %}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Available surveys</h3>
+            </div>
+                
+            <ul class="list-group">
+                {% if polls %}
+                {% for poll in polls %}
+                <li class="list-group-item">
+                    <strong>{{ poll.question }}</strong>
+                    <span class="pull-right">
+                        <a href="{% url 'radio_vote' poll.radio_id %}" class="btn btn-info btn-xs">Reply</a> &nbsp;
+                        <a href="{% url 'radio_results' poll.radio_id %}" class="btn btn-default btn-xs">Results</a> &nbsp;
+                </li>
+                {% endfor %}
+                {% endif %}
+                {% if pollsed %}
+                {% for polled in pollsed %}
+                <li class="list-group-item">
+                    <strong>{{ polled.quest }}</strong> 
+                    <span class="pull-right">
+                        <a href="{% url 'checkbox_vote' polled.checkbox_id %}" class="btn btn-info btn-xs">Reply</a> &nbsp;
+                        <a href="{% url 'checkbox_results' polled.checkbox_id %}" class="btn btn-default btn-xs">Results</a> &nbsp;
+                </li>
+                
+                {% endfor %}
+                {% endif %}
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}

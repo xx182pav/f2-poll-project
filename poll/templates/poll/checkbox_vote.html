@@ -1,0 +1,65 @@
+{% extends "poll/base.html" %}
+
+{% block title %}Vote{% endblock %}
+
+{% block main %}
+{% if poll.header_image %}
+<img src="{{ poll.header_image.url }}"style="max-height:100px">
+{% endif %}<br/><br/><br/>
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Response to question</h3>
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>{{ po.quest }}</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <hr />
+
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="po" value="opt1" required>
+                                        {{ po.opt_one }}
+                                    </label> &nbsp;
+                                    <label>
+                                        <input type="checkbox" name="po" value="opt2">
+                                        {{ po.opt_two }}
+                                    </label> &nbsp;
+                                    <label>
+                                        <input type="checkbox" name="po" value="opt3">
+                                        {{ po.opt_three }}
+                                    </label> &nbsp;
+                                    <label>
+                                        <input type="checkbox" name="po" value="opt4">
+                                        {{ po.opt_four }}
+                                    </label> &nbsp;
+                                </div>
+                            </div>
+                            
+                            <hr />
+
+                            <button type="submit" class="btn btn-info">
+                                Ответить
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
