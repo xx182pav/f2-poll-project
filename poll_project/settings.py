@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import dj_database_url
+import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -22,7 +23,7 @@ SECRET_KEY = 'qi8k&i50x40s=m9qx(xvjp-r3w)8pw5j7x2w&lp7-bmx9ku&uw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'f2-poll-project.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,17 +82,19 @@ WSGI_APPLICATION = 'poll_project.wsgi.application'
 #     }
 # }
 # for Docker-compose settings:
-
-DATABASES = {
-  'default': {
-      'ENGINE': 'django.db.backends.postgresql',
-      'NAME': 'postgres',
-      'USER': 'postgres',
-      'PASSWORD': 'postgres',
-      'HOST': 'db',
-      'PORT': 5432,
-  }
+DATABASE = {
+    'default': dj_database_url.config()
 }
+# DATABASES = {
+#   'default': {
+#       'ENGINE': 'django.db.backends.postgresql',
+#       'NAME': 'postgres',
+#       'USER': 'postgres',
+#       'PASSWORD': 'postgres',
+#       'HOST': 'db',
+#       'PORT': 5432,
+#   }
+# }
 
 
 
@@ -141,3 +144,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+django_heroku.settings(locals())
