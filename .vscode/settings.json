@@ -1,0 +1,11 @@
+{
+    "python.testing.pytestArgs": [
+        "poll_project"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": false,
+    "python.pythonPath": "/usr/local/bin/python3.9",
+    "python.testing.promptToConfigure": false,
+    "git.ignoreLimitWarning": true
+}
