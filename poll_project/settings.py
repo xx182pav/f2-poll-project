@@ -20,15 +20,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qi8k&i50x40s=m9qx(xvjp-r3w)8pw5j7x2w&lp7-bmx9ku&uw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = [ '*' ]
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'f2-poll-project.herokuapp.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'whitenoise.runserver_nostatic',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -80,17 +81,17 @@ WSGI_APPLICATION = 'poll_project.wsgi.application'
 #     }
 # }
 # for Docker-compose settings:
-DATABASES = {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
-# DATABASES = {
-#   'default': {
-#       'ENGINE': 'django.db.backends.postgresql',
-#       'NAME': 'postgres',
-#       'USER': 'postgres',
-#       'PASSWORD': 'postgres',
-#       'HOST': 'db',
-#       'PORT': 5432,
-#   }
-# }
+
+DATABASES = {
+  'default': {
+      'ENGINE': 'django.db.backends.postgresql',
+      'NAME': 'postgres',
+      'USER': 'postgres',
+      'PASSWORD': 'postgres',
+      'HOST': 'db',
+      'PORT': 5432,
+  }
+}
 
 
 
