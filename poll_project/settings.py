@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import dj_database_url
+
+ 
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -17,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qi8k&i50x40s=m9qx(xvjp-r3w)8pw5j7x2w&lp7-bmx9ku&uw'
+SECRET_KEY='qi8k&i50x40s=m9qx(xvjp-r3w)8pw5j7x2w&lp7-bmx9ku&uw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -82,16 +86,8 @@ WSGI_APPLICATION = 'poll_project.wsgi.application'
 # }
 # for Docker-compose settings:
 
-DATABASES = {
-  'default': {
-      'ENGINE': 'django.db.backends.postgresql',
-      'NAME': 'postgres',
-      'USER': 'postgres',
-      'PASSWORD': 'postgres',
-      'HOST': 'localhost',
-      'PORT': 5432,
-  }
-}
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 
 
