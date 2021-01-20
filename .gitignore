@@ -1,7 +1,0 @@
-db.sqlite3
-*.pyc
-.vscode/*
-!.vscode/settings.json
-!.vscode/launch.json
-f2/
-__pycache__/
