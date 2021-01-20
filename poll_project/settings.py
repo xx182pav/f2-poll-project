@@ -22,7 +22,7 @@ SECRET_KEY='qi8k&i50x40s=m9qx(xvjp-r3w)8pw5j7x2w&lp7-bmx9ku&uw'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = None
 
 ALLOWED_HOSTS = ['f2-poll-project.herokuapp.com']
 
@@ -134,5 +134,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-import django_heroku
-django_heroku.settings(config=locals(), staticfiles=False,logging=False)
