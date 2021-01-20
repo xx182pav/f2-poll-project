@@ -75,7 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'poll_project.wsgi.application'
 
-
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
