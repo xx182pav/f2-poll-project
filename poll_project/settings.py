@@ -23,9 +23,10 @@ SECRET_KEY='qi8k&i50x40s=m9qx(xvjp-r3w)8pw5j7x2w&lp7-bmx9ku&uw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['f2-poll-project.herokuapp.com']
-
+#deploy heroku
+# ALLOWED_HOSTS = ['f2-poll-project.herokuapp.com']
+# for Docker-compose settings:
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -83,17 +84,17 @@ WSGI_APPLICATION = 'poll_project.wsgi.application'
 #     }
 # }
 # for Docker-compose settings:
-#DATABASES = {
-#   'default': {
-#       'ENGINE': 'django.db.backends.postgresql',
-#       'NAME': 'postgres',
-#       'USER': 'postgres',
-#       'HOST': 'db',
-#       'PORT': 5432,
-#   }
-#}
-
-DATABASES = { 'default': dj_database_url.config() }
+DATABASES = {
+  'default': {
+      'ENGINE': 'django.db.backends.postgresql',
+      'NAME': 'postgres',
+      'USER': 'postgres',
+      'HOST': 'db',
+      'PORT': 5432,
+  }
+}
+#deploy heroku
+# DATABASES = { 'default': dj_database_url.config() }
 
 
 
