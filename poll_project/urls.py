@@ -30,4 +30,9 @@ urlpatterns = [
     path('login/', poll_views.login_user, name="login"),
     path('logout/', poll_views.logout_user, name='logout'),
     path('register/', poll_views.user_registration, name="register")
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
