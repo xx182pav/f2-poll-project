@@ -27,10 +27,6 @@ SECRET_KEY='qi8k&i50x40s=m9qx(xvjp-r3w)8pw5j7x2w&lp7-bmx9ku&uw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
 
 ALLOWED_HOSTS = ['f2-poll-project.herokuapp.com']
 
