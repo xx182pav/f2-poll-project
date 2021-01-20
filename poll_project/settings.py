@@ -83,6 +83,15 @@ WSGI_APPLICATION = 'poll_project.wsgi.application'
 #     }
 # }
 # for Docker-compose settings:
+#DATABASES = {
+#   'default': {
+#       'ENGINE': 'django.db.backends.postgresql',
+#       'NAME': 'postgres',
+#       'USER': 'postgres',
+#       'HOST': 'db',
+#       'PORT': 5432,
+#   }
+#}
 
 DATABASES = { 'default': dj_database_url.config() }
 
